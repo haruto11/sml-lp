@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SML — Selfmade Lifestyle｜自分の力で、理想の生活を作る</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQBXF5YN5S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQBXF5YN5S');
+</script>
+<meta name="description" content="投稿してるのに伸びない——その迷いに終止符を打つ。やり方も売り方も、迷わず進める月額19,000円のコミュニティ。いつでも解約可。">
+<!-- OGP（デプロイ時に og:url と og:image の絶対URLを差し込む） -->
+<meta property="og:title" content="SML — Selfmade Lifestyle">
+<meta property="og:description" content="自分の力で、理想の生活を作る。発信を仕組みに変える環境。月19,000円・いつでも解約可。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="[DEPLOY_URL]">
+<meta property="og:image" content="[OG_IMAGE_URL]">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A063;
+    --gold-light: #F0D9A8;
+    --gold-deep: #8C6E3F;
+    --bg: #050505;
+    --panel: rgba(10, 10, 10, 0.78);
+    --panel-border: rgba(201, 160, 99, 0.25);
+    --txt: #EDEDEA;
+    --txt-dim: #A3A39E;
+    --grad-gold: linear-gradient(120deg, #F0D9A8 0%, #C9A063 45%, #E8C88A 100%);
+    --sunset: #E8845A;
+    --sunset-deep: #C4562F;
+    --grad-sunset: linear-gradient(120deg, #F0D9A8 0%, #E8845A 55%, #C9A063 100%);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+    background: var(--bg); color: var(--txt); line-height: 1.9;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  .en { font-family: "Inter", "Noto Sans JP", sans-serif; }
+  .section { position: relative; padding: 84px 24px; }
+  .inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+  .glow.g1 { width: 480px; height: 480px; background: rgba(201, 160, 99, 0.16); top: -160px; left: 50%; transform: translateX(-50%); }
+  .glow.g2 { width: 360px; height: 360px; background: rgba(201, 160, 99, 0.10); }
+  .glow.sunset {
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(232, 132, 90, 0.22) 0%, rgba(201, 160, 99, 0.10) 55%, transparent 75%);
+  }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--panel-border); background: rgba(201, 160, 99, 0.08);
+    border-radius: 999px; padding: 7px 18px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--gold-light);
+    text-transform: uppercase;
+  }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+
+  .gt {
+    background: var(--grad-gold);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .gt-sunset {
+    background: var(--grad-sunset);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .pill.sunset {
+    border-color: rgba(232, 132, 90, 0.35); background: rgba(232, 132, 90, 0.10); color: #F0B896;
+  }
+  .pill.sunset::before { background: var(--sunset); box-shadow: 0 0 8px var(--sunset); }
+  h2 { font-size: 25px; font-weight: 900; line-height: 1.65; }
+  .sec-head { text-align: center; margin-bottom: 38px; }
+  .sec-head .pill { margin-bottom: 18px; }
+
+  .cta-btn {
+    position: relative; display: block; margin: 36px auto 0; max-width: 460px;
+    background: var(--grad-gold); text-decoration: none;
+    padding: 20px 28px; text-align: center; border-radius: 14px;
+    box-shadow: 0 0 32px rgba(201, 160, 99, 0.45), 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s, box-shadow 0.25s; overflow: hidden;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 48px rgba(201, 160, 99, 0.65), 0 12px 28px rgba(0, 0, 0, 0.5); }
+  .cta-btn::after {
+    content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    animation: shine 3.2s ease-in-out infinite;
+  }
+  @keyframes shine { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
+  .cta-btn .main { display: block; font-size: 18px; color: #1a1205; font-weight: 900; }
+  .cta-btn .sub { display: block; font-size: 11.5px; color: rgba(26, 18, 5, 0.75); font-weight: 700; margin-top: 4px; }
+
+  .card { background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; backdrop-filter: blur(14px); }
+  .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .rv.on { opacity: 1; transform: none; }
+
+  /* ─ 1. Hero ─ */
+  .fv { padding: 96px 24px 80px; text-align: center; position: relative; overflow: hidden; }
+  .fv .hook { margin-top: 26px; font-size: 31px; font-weight: 900; line-height: 1.6; color: #fff; text-shadow: 0 0 40px rgba(201, 160, 99, 0.25); }
+  .fv .sub-copy { margin-top: 20px; font-size: 15px; color: var(--txt-dim); line-height: 2.1; }
+  .fv .sub-copy b { color: #fff; }
+  .vsl {
+    margin: 40px auto 0; max-width: 560px; position: relative; border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(201, 160, 99, 0.5);
+    box-shadow: 0 0 50px rgba(201, 160, 99, 0.25), 0 20px 40px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 16 / 9; background: #0d0d0d;
+  }
+  .vsl iframe, .vsl video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .vsl .ph {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; color: var(--txt-dim); font-size: 12px;
+  }
+  .vsl .ph .play {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--grad-gold);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 30px rgba(201, 160, 99, 0.6);
+    font-size: 22px; color: #1a1205;
+  }
+  .vsl-note { margin-top: 12px; font-size: 12px; color: var(--txt-dim); }
+
+  /* ─ 2. Social proof ticker ─ */
+  .proof-strip { padding: 34px 24px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.015); }
+  .proof-strip .inner { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .chip {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 14px 20px; border-radius: 14px; min-width: 150px;
+    background: var(--panel); border: 1px solid var(--panel-border);
+  }
+  .chip .n { font-size: 19px; font-weight: 900; line-height: 1.3; }
+  .chip .l { font-size: 10.5px; color: var(--txt-dim); }
+
+  /* ─ 3. Empathy ─ */
+  .check-list { display: flex; flex-direction: column; gap: 12px; }
+  .check-list .row { display: flex; gap: 14px; align-items: flex-start; padding: 17px 20px; font-size: 14.5px; }
+  .check-list .mark {
+    flex-shrink: 0; width: 22px; height: 22px; margin-top: 3px; border-radius: 50%;
+    background: rgba(201, 160, 99, 0.15); border: 1px solid var(--panel-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--gold-light); font-weight: 900;
+  }
+  .empathy-close { margin-top: 34px; font-size: 15.5px; line-height: 2.2; text-align: center; color: var(--txt-dim); }
+  .empathy-close b { color: #fff; }
+
+  /* ─ 4. Why environment ─ */
+  .why p { font-size: 15px; color: var(--txt-dim); margin-top: 22px; line-height: 2.2; }
+  .why p b { color: #fff; }
+  .punch {
+    margin-top: 36px; padding: 28px 26px; text-align: center;
+    font-size: 18px; font-weight: 900; color: #fff; line-height: 2.0;
+    background: linear-gradient(160deg, rgba(232, 132, 90, 0.16), rgba(201, 160, 99, 0.04));
+    border: 1px solid rgba(232, 132, 90, 0.3); border-radius: 16px;
+    box-shadow: 0 0 40px rgba(232, 132, 90, 0.14) inset;
+  }
+
+  /* ─ 5. What's inside ─ */
+  .pillars { display: flex; flex-direction: column; gap: 16px; }
+  .pillar { padding: 26px 24px; transition: border-color 0.3s, box-shadow 0.3s; }
+  .pillar:hover { border-color: rgba(201, 160, 99, 0.6); box-shadow: 0 0 28px rgba(201, 160, 99, 0.15); }
+  .pillar .num { font-size: 28px; font-weight: 900; line-height: 1; }
+  .pillar .tag { font-size: 10px; color: var(--gold-deep); font-weight: 800; letter-spacing: 0.12em; margin-top: 10px; }
+  .pillar .name { font-size: 17px; font-weight: 900; color: #fff; margin-top: 4px; }
+  .pillar ul { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 7px; }
+  .pillar li { font-size: 13px; color: var(--txt-dim); padding-left: 16px; position: relative; line-height: 1.8; }
+  .pillar li::before { content: "◆"; position: absolute; left: 0; top: 0; font-size: 8px; color: var(--gold); line-height: 2.8; }
+  .pillar-shot { margin-top: 16px; }
+  .pillar-shot img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--panel-border); }
+  .pillar-close { margin-top: 16px; font-size: 15px; font-weight: 700; text-align: center; line-height: 2.1; color: var(--txt); }
+  .pillar-close b { color: #fff; }
+  .mockup-wrap { margin-top: 28px; }
+  .mockup-wrap img { width: 100%; display: block; border-radius: 16px; border: 1px solid var(--panel-border); }
+  .mockup-caption { font-size: 11px; color: var(--txt-dim); margin-top: 10px; text-align: center; }
+  .device-collage { position: relative; margin: 44px auto 0; max-width: 680px; padding-bottom: 60%; }
+  .device-collage .dc { position: absolute; width: auto; display: block; filter: drop-shadow(0 20px 34px rgba(0,0,0,0.55)); }
+  .device-collage .dc-mac1 { width: 54%; left: 12%; top: 20%; z-index: 1; }
+  .device-collage .dc-mac2 { width: 40%; right: 10%; top: 4%; z-index: 2; }
+  .device-collage .dc-ipad { width: 24%; right: 15%; bottom: 10%; z-index: 3; }
+  .device-collage .dc-phone1 { width: 15%; left: 18%; bottom: 6%; z-index: 4; }
+  .device-collage .dc-phone2 { width: 15%; left: 34%; bottom: 10%; z-index: 5; }
+  .device-collage + .mockup-caption { margin-top: 24px; }
+  .ba-photos { display: flex; gap: 12px; margin-top: 20px; }
+  .ba-photos .shot { flex: 1; min-width: 0; }
+  .ba-photos img { width: 100%; display: block; border-radius: 12px; border: 1px solid var(--panel-border); }
+  .ba-photos .shot-label { margin-top: 8px; font-size: 10.5px; letter-spacing: 0.1em; font-weight: 800; color: var(--gold-light); text-align: center; }
+  .ba-photos .shot-label span { color: var(--txt-dim); font-weight: 500; letter-spacing: 0; }
+  .proof-msg { margin-top: 18px; display: flex; flex-direction: column; align-items: center; }
+  .proof-msg img { max-width: 280px; width: 100%; display: block; border-radius: 12px; border: 1px solid var(--panel-border); }
+  .proof-msg .proof-caption { margin-top: 8px; font-size: 11px; color: var(--txt-dim); text-align: center; }
+
+  /* ─ 6. Roadmap ─ */
+  .roadmap { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .roadmap::before {
+    content: ""; position: absolute; left: 25px; top: 20px; bottom: 20px; width: 2px;
+    background: linear-gradient(180deg, var(--gold), rgba(201, 160, 99, 0.1));
+  }
+  .rm-item { display: flex; gap: 20px; padding: 18px 0; position: relative; }
+  .rm-dot {
+    flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; z-index: 1;
+    background: #0d0d0d; border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 900; color: var(--gold-light); text-align: center; line-height: 1.2;
+    box-shadow: 0 0 18px rgba(201, 160, 99, 0.3);
+  }
+  .rm-body { padding-top: 4px; }
+  .rm-body .t { font-size: 15.5px; font-weight: 900; color: #fff; }
+  .rm-body .d { font-size: 13px; color: var(--txt-dim); margin-top: 6px; line-height: 2.0; }
+
+  /* ─ 7a. Value stack ─ */
+  .stack-card { padding: 30px 26px; margin-bottom: 28px; }
+  .stack-head { text-align: center; font-size: 18px; font-weight: 900; color: #fff; }
+  .stack-rows { margin-top: 22px; display: flex; flex-direction: column; }
+  .stack-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    padding: 15px 2px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .stack-row .item { font-size: 13.5px; color: var(--txt); line-height: 1.7; }
+  .stack-row .item small { display: block; font-size: 11px; color: var(--txt-dim); margin-top: 2px; }
+  .stack-row .val { flex-shrink: 0; font-size: 14px; font-weight: 900; white-space: nowrap; }
+  .stack-total { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 2px 4px; }
+  .stack-total .t { font-size: 14px; font-weight: 800; color: #fff; }
+  .stack-total .v { font-size: 21px; font-weight: 900; }
+  .stack-arrow { text-align: center; margin-top: 18px; font-size: 14px; color: var(--txt-dim); line-height: 2.0; }
+  .stack-arrow b { color: #fff; font-size: 16px; }
+
+  /* ─ 7. Price anchor ─ */
+  .price-card {
+    position: relative; padding: 38px 28px; border-radius: 20px; text-align: center;
+    background: linear-gradient(175deg, rgba(201, 160, 99, 0.13), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(201, 160, 99, 0.55);
+    box-shadow: 0 0 60px rgba(201, 160, 99, 0.22), 0 24px 48px rgba(0, 0, 0, 0.45);
+  }
+  .price-card .ribbon {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--grad-gold); color: #1a1205;
+    font-size: 11px; font-weight: 900; letter-spacing: 0.14em;
+    padding: 6px 22px; border-radius: 999px; white-space: nowrap;
+    box-shadow: 0 0 20px rgba(201, 160, 99, 0.5);
+  }
+  .price-card .p-name { font-size: 13px; font-weight: 800; letter-spacing: 0.16em; margin-top: 8px; }
+  .price-card .p-price { font-size: 42px; color: #fff; font-weight: 900; margin-top: 10px; line-height: 1.2; }
+  .price-card .p-price small { font-size: 14px; font-weight: 700; color: var(--txt-dim); }
+  .price-card .per-day { margin-top: 10px; font-size: 14px; color: var(--txt-dim); }
+  .price-card .per-day b { color: var(--gold-light); font-size: 17px; }
+  .offer-list { margin-top: 24px; display: flex; flex-direction: column; text-align: left; }
+  .offer-list .row {
+    display: flex; gap: 12px; padding: 13px 2px; font-size: 13.5px; color: var(--txt);
+    align-items: flex-start; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .offer-list .row:last-child { border-bottom: none; }
+  .offer-list .mark {
+    flex-shrink: 0; width: 20px; height: 20px; margin-top: 3px; border-radius: 50%;
+    background: var(--grad-gold); color: #1a1205;
+    display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900;
+  }
+  .tbd { color: var(--gold-light); font-weight: 800; }
+  .offer-meta { margin-top: 18px; font-size: 12px; color: var(--txt-dim); line-height: 2.0; }
+
+  /* ─ 8. Results ─ */
+  .proof-stats { display: flex; gap: 14px; }
+  .proof-stat {
+    flex: 1; padding: 24px 12px; text-align: center;
+    background: linear-gradient(180deg, rgba(201, 160, 99, 0.10), rgba(201, 160, 99, 0.02));
+    border: 1px solid var(--panel-border); border-radius: 16px;
+    box-shadow: 0 0 24px rgba(201, 160, 99, 0.10);
+  }
+  .proof-stat .num { font-size: 26px; font-weight: 900; line-height: 1.3; }
+  .proof-stat .label { font-size: 11px; color: var(--txt-dim); margin-top: 10px; line-height: 1.6; }
+  .voice { margin-top: 18px; padding: 26px 24px; }
+  .voice .case-tag {
+    display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+    color: var(--gold-light); background: rgba(201, 160, 99, 0.12);
+    border: 1px solid var(--panel-border); border-radius: 999px; padding: 4px 14px;
+  }
+  .voice .ba { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .voice .ba .row { display: flex; gap: 12px; font-size: 13px; align-items: flex-start; }
+  .voice .ba .tag {
+    flex-shrink: 0; width: 58px; text-align: center; font-size: 10px; font-weight: 800;
+    padding: 4px 0; margin-top: 2px; border-radius: 6px; letter-spacing: 0.06em;
+  }
+  .voice .ba .tag.b { background: rgba(255, 255, 255, 0.07); color: var(--txt-dim); }
+  .voice .ba .tag.a { background: var(--grad-gold); color: #1a1205; box-shadow: 0 0 14px rgba(201, 160, 99, 0.4); }
+  .voice .ba .txt { color: var(--txt-dim); line-height: 1.8; }
+  .voice .ba .txt b { color: #fff; }
+  .voice .q { font-size: 14.5px; color: #fff; font-weight: 700; line-height: 2.0; margin-top: 18px; }
+  .voice .who { font-size: 12px; color: var(--txt-dim); margin-top: 10px; }
+  .tbd-box {
+    margin-top: 18px; border: 1.5px dashed rgba(201, 160, 99, 0.3); border-radius: 16px;
+    padding: 26px; text-align: center; font-size: 12px; color: var(--txt-dim);
+  }
+
+  /* ─ 9. Risk reversal ─ */
+  .risk-card {
+    padding: 36px 28px; text-align: center; border-radius: 20px;
+    background: var(--panel); border: 1px solid var(--panel-border);
+  }
+  .risk-card .big { font-size: 21px; font-weight: 900; color: #fff; line-height: 1.9; }
+  .risk-card .detail { margin-top: 16px; font-size: 13.5px; color: var(--txt-dim); line-height: 2.1; }
+  .risk-badges { margin-top: 22px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .risk-badges .b {
+    font-size: 12px; font-weight: 800; color: var(--gold-light);
+    border: 1px solid var(--panel-border); background: rgba(201, 160, 99, 0.08);
+    border-radius: 999px; padding: 8px 18px;
+  }
+
+  /* ─ 10. Scarcity ─ */
+  .scarcity { text-align: center; }
+  .scarcity .msg { font-size: 16px; line-height: 2.2; color: var(--txt-dim); }
+  .scarcity .msg b { color: #fff; }
+
+  /* ─ 11. FAQ ─ */
+  .faq { display: flex; flex-direction: column; gap: 12px; }
+  .faq details { overflow: hidden; }
+  .faq summary {
+    list-style: none; cursor: pointer; display: flex; gap: 12px; align-items: flex-start;
+    padding: 20px 22px; font-size: 15px; font-weight: 800; color: #fff; line-height: 1.7;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before {
+    content: "Q"; flex-shrink: 0; font-weight: 900;
+    background: var(--grad-gold); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .faq summary::after {
+    content: "+"; margin-left: auto; flex-shrink: 0; color: var(--gold);
+    font-size: 20px; font-weight: 400; line-height: 1.2; transition: transform 0.3s;
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq .a { padding: 0 22px 22px 46px; font-size: 13.5px; color: var(--txt-dim); line-height: 2.1; }
+
+  /* ─ 12. Two choices ─ */
+  .choices { display: flex; flex-direction: column; gap: 16px; }
+  .choice { padding: 28px 24px; border-radius: 18px; }
+  .choice.stay { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .choice.go {
+    background: linear-gradient(165deg, rgba(201, 160, 99, 0.14), rgba(201, 160, 99, 0.03));
+    border: 1px solid rgba(201, 160, 99, 0.55);
+    box-shadow: 0 0 44px rgba(201, 160, 99, 0.18);
+  }
+  .choice .ct { font-size: 15.5px; font-weight: 900; }
+  .choice.stay .ct { color: var(--txt-dim); }
+  .choice.go .ct { color: #fff; }
+  .choice ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .choice li { font-size: 13px; line-height: 1.9; padding-left: 18px; position: relative; }
+  .choice.stay li { color: var(--txt-dim); }
+  .choice.stay li::before { content: "—"; position: absolute; left: 0; color: #666; }
+  .choice.go li { color: var(--txt); }
+  .choice.go li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
+  .final-msg { margin-top: 44px; text-align: center; font-size: 21px; font-weight: 900; color: #fff; line-height: 2.0; }
+  .ps { margin-top: 30px; text-align: center; font-size: 13px; color: var(--txt-dim); line-height: 2.1; }
+  .ps b { color: var(--gold-light); }
+
+  .footer { text-align: center; padding: 30px 24px 110px; }
+  .footer .t { font-size: 10px; color: #555; letter-spacing: 0.1em; }
+
+  .sticky-cta {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+    background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--panel-border);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    transform: translateY(110%); transition: transform 0.35s;
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  .sticky-cta .price { font-size: 12px; color: var(--txt-dim); line-height: 1.5; }
+  .sticky-cta .price b { color: #fff; font-size: 14px; }
+  .sticky-cta .btn {
+    flex-shrink: 0; background: var(--grad-gold); color: #1a1205; text-decoration: none;
+    font-size: 14px; font-weight: 900; padding: 13px 24px; border-radius: 10px;
+    box-shadow: 0 0 18px rgba(201, 160, 99, 0.45);
+  }
+
+  @media (min-width: 768px) {
+    h2 { font-size: 29px; }
+    .fv .hook { font-size: 42px; }
+    .pillars { display: grid; grid-template-columns: 1fr; }
+    .pillar { display: flex; align-items: center; gap: 32px; }
+    .pillar-body { flex: 1.2; min-width: 0; }
+    .pillar-shot { flex: 1; min-width: 0; margin-top: 0; }
+    .pillar-close { grid-column: 1 / -1; }
+    .choices { flex-direction: row; }
+    .choice { flex: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 南国の葉っぱ（黒背景に浮かぶ影レイヤー。JSで生成。ページ全体に追従し、上下の余白だけに配置） -->
+<svg id="leafLayer" style="position:absolute; top:0; left:0; z-index:0; pointer-events:none;"></svg>
+
+<!-- 1. ヒーロー -->
+<section class="fv">
+  <div class="glow g1"></div>
+  <div class="inner">
+    <span class="pill en">SML — Selfmade Lifestyle</span>
+    <div class="hook">
+      自分の力で、<br><span class="gt">理想の生活を作る。</span>
+    </div>
+    <div class="sub-copy">
+      そのために足りないのは、才能じゃなく<b>「環境」</b>。投稿してるのに伸びない——その迷いに、終止符を打つ。
+    </div>
+
+    <!-- VSL動画（レイトさん本人） -->
+    <div class="vsl">
+      <video src="動画/SML_VSL.mp4" controls playsinline poster="動画/SML_VSL_poster.jpg"></video>
+    </div>
+    <div class="vsl-note">まずはこの動画を見てほしい</div>
+
+    <a href="https://whop.com/checkout/plan_R1ZcD6mGp1a12" class="cta-btn">
+      <span class="main">今すぐ入会する →</span>
+      <span class="sub">月額 ¥19,000｜いつでも解約可</span>
+    </a>
+  </div>
+</section>
+
+<!-- 2. 社会的証明ストリップ -->
+<div class="proof-strip">
+  <div class="inner">
+    <div class="chip rv"><span class="n gt en">1.6万人</span><span class="l">レイト本人のIGフォロワー</span></div>
+    <div class="chip rv"><span class="n gt en">+5,000人/月</span><span class="l">環境を変えた直後の増加数</span></div>
+    <div class="chip rv"><span class="n gt en">3件成約</span><span class="l">メンバーが入会2ヶ月で達成</span></div>
+  </div>
+</div>
+
+<!-- 3. 問題提起→共感 -->
+<section class="section">
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill en">Check</span>
+      <h2>こんな状態のまま、<br>発信を続けてないか。</h2>
+    </div>
+    <div class="check-list">
+      <div class="card row rv"><span class="mark">✓</span><span>毎日投稿してるのに、フォロワーが増えない</span></div>
+      <div class="card row rv"><span class="mark">✓</span><span>何を発信すればいいのか、いつも迷いながら投稿してる</span></div>
+      <div class="card row rv"><span class="mark">✓</span><span>投稿しても、数字が動かない画面を一人で眺めてる夜がある</span></div>
+      <div class="card row rv"><span class="mark">✓</span><span>0→1は達成したけど、その先どう進めばいいかわからない</span></div>
+    </div>
+    <div class="empathy-close rv">
+      これ、才能とかセンスの話じゃない。<br>
+      <b>「やり方」と「順番」を知らないだけ。</b><br>
+      そして一番の問題は、それを<b>一人で</b>やっていることだ。
+    </div>
+  </div>
+</section>
+
+<!-- 4. なぜ環境か -->
+<section class="section why">
+  <div class="glow sunset" style="top: 10%; right: -180px;"></div>
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill sunset en">Why</span>
+      <h2>1年前の俺も、<span class="gt-sunset">同じだった。</span></h2>
+    </div>
+    <div class="rv">
+      <p>
+        会社を辞めて、「発信で生きていく」と決めた。なのに怖くて、アカウント開設画面を開いては、閉じた。同僚にどう思われるか。それだけで<b>5ヶ月、止まった。</b>
+      </p>
+      <p>
+        やっと始めても、数字は動かない。<b>「会社辞めたのに、この程度かよ」</b>——何度も自分を責めた。それでも毎日投稿だけは続けた。でも、月1,000人止まり。
+      </p>
+      <p>
+        変わったのは、情報量じゃない。<b>「環境」を変えた瞬間だった。</b>
+      </p>
+    </div>
+    <div class="ba-photos rv">
+      <div class="shot">
+        <img src="実績/レイトさん_アカウント_before.jpg" alt="レイトさん 発信を始める前のIGプロフィール（フォロワー0人）">
+        <div class="shot-label">BEFORE <span>フォロワー0人</span></div>
+      </div>
+      <div class="shot">
+        <img src="実績/レイトさん_アカウント_after_トリミング.png" alt="レイトさん 現在のIGプロフィール（フォロワー1.6万人）">
+        <div class="shot-label">AFTER <span>フォロワー1.6万人</span></div>
+      </div>
+    </div>
+    <div class="punch rv">
+      一人でやってる努力は、積み上がらない。<br>
+      <span class="gt-sunset">環境が、人を変える。</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 中身（What's Inside） -->
+<section class="section">
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill en">What's Inside</span>
+      <h2>SMLでやることは、<br>シンプルに<span class="gt">4つ。</span></h2>
+    </div>
+    <div class="pillars">
+      <div class="card pillar rv">
+        <div class="pillar-body">
+          <div class="num gt en">01</div>
+          <div class="tag en">BRAND ｜ 6 LESSONS</div>
+          <div class="name">ブランド設計</div>
+          <ul>
+            <li>アカウント設計とアルゴリズム理解</li>
+            <li>過去の経験から「ブランドの軸」を作る・マイストーリー動画の設計</li>
+            <li>競合分析・ベンチマーク設計とコンテンツ比率設計</li>
+          </ul>
+        </div>
+        <div class="pillar-shot">
+          <img src="実績/講義_柱01ブランド設計.png" alt="実際の講義動画: パーソナルブランド全体像">
+        </div>
+      </div>
+      <div class="card pillar rv">
+        <div class="pillar-body">
+          <div class="num gt en">02</div>
+          <div class="tag en">CONTENT ｜ 6 LESSONS</div>
+          <div class="name">コンテンツ制作</div>
+          <ul>
+            <li>海外事例から学ぶコンテンツ戦略</li>
+            <li>フック設計とストーリーテリング</li>
+            <li>トライアルリール・日常系コンテンツ・トーキングヘッド</li>
+          </ul>
+        </div>
+        <div class="pillar-shot">
+          <img src="実績/講義_柱02コンテンツ制作.png" alt="実際の講義動画: ストーリーテリングとは">
+        </div>
+      </div>
+      <div class="card pillar rv">
+        <div class="pillar-body">
+          <div class="num gt en">03</div>
+          <div class="tag en">AUTHORITY &amp; COPY ｜ 10 LESSONS</div>
+          <div class="name">権威構築・コピー</div>
+          <ul>
+            <li>視聴者の教育と権威の作り方</li>
+            <li>コピーライティング×「影響力の武器」の心理学</li>
+            <li>バズる動画の原則と、欲求を動かすコンテンツ</li>
+          </ul>
+        </div>
+        <div class="pillar-shot">
+          <img src="実績/講義_柱03権威構築コピー.png" alt="実際の講義動画: 収益を産むパーソナルブランドのコンテンツ比率設計">
+        </div>
+      </div>
+      <div class="card pillar rv">
+        <div class="pillar-body">
+          <div class="num gt en">04</div>
+          <div class="tag en">MONETIZE &amp; FUNNEL ｜ 8 LESSONS</div>
+          <div class="name">収益化・導線</div>
+          <ul>
+            <li>ICP設計と導線全体像</li>
+            <li>オファー設計・商品の価格設計・高単価セールスの設計</li>
+            <li>エバーローンチ／7日間プロダクトローンチ／クロージング</li>
+          </ul>
+        </div>
+        <div class="pillar-shot">
+          <img src="実績/講義_柱04収益化導線.png" alt="実際の講義動画: ICP設計">
+        </div>
+      </div>
+      <div class="pillar-close rv">全<b>28レッスン</b>＋ボーナス講義。①→④の順に進めば、「ブランド・コンテンツ・信頼・収益化」が<span class="gt">一直線に繋がる。</span><br>これが、<b>"収益性の高いパーソナルブランド構築方法"</b>の全体像だ。</div>
+    </div>
+    <div class="device-collage rv">
+      <img class="dc dc-mac1" src="実績/モックアップ_MacBook_コミュニティ.png" alt="SMLコミュニティ画面（MacBook）">
+      <img class="dc dc-mac2" src="実績/モックアップ_MacBook_講義.png" alt="講義動画画面（MacBook）">
+      <img class="dc dc-ipad" src="実績/モックアップ_iPad_ICPシート.png" alt="ICP設計シート（iPad）">
+      <img class="dc dc-phone1" src="実績/モックアップ_iPhone_オンボーディング.png" alt="オンボーディング画面（iPhone）">
+      <img class="dc dc-phone2" src="実績/モックアップ_iPhone_レッスン一覧.png" alt="レッスン一覧画面（iPhone）">
+    </div>
+    <div class="mockup-caption">実際のSMLコミュニティ・講義画面</div>
+  </div>
+</section>
+
+<!-- 6. 入会後ロードマップ -->
+<section class="section" id="sec-roadmap" style="padding-bottom: 48px;">
+  <div class="glow g2" style="top: 20%; left: -180px;"></div>
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill en">Roadmap</span>
+      <h2>入会後、<span class="gt">こう変わっていく。</span></h2>
+    </div>
+    <div class="roadmap">
+      <div class="rm-item rv">
+        <div class="rm-dot en">WEEK<br>1</div>
+        <div class="rm-body">
+          <div class="t">発信の軸が決まる</div>
+          <div class="d">ICP設計に着手して「誰に・何を届けるか」を言語化。今日から投稿の迷いが消え始める。</div>
+        </div>
+      </div>
+      <div class="rm-item rv">
+        <div class="rm-dot en">MONTH<br>1</div>
+        <div class="rm-body">
+          <div class="t">迷わず投稿できる状態＋商品の原型</div>
+          <div class="d">刺さる言葉の型が手に入り、投稿に意図が宿る。自分の知識・経験をどう商品にするかの設計が始まる。</div>
+        </div>
+      </div>
+      <div class="rm-item rv">
+        <div class="rm-dot en">MONTH<br>3</div>
+        <div class="rm-body">
+          <div class="t">導線がつながり、収益化への挑戦</div>
+          <div class="d">発信→導線→面談→成約が一本の線になる。実際にメンバーは入会2ヶ月で有料成約3件を達成している。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 価格＋アンカリング -->
+<section class="section" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="glow g1" style="top: 30%;"></div>
+  <div class="inner">
+    <!-- バリュースタック（THE VALUE INSIDE） -->
+    <div class="card stack-card rv">
+      <div class="stack-head">SMLに入ると、<span class="gt">手に入るもの。</span></div>
+      <div class="stack-rows">
+        <div class="stack-row">
+          <span class="item">全28レッスン＋ボーナス講義<small>ブランド設計〜収益化の完全カリキュラム。1テーマ単体でも講座として成立する内容</small></span>
+          <span class="val gt">¥300,000相当</span>
+        </div>
+        <div class="stack-row">
+          <span class="item">週1のグループライブコール<small>月4回・1回あたり個別コンサル相当の直接フィードバック</small></span>
+          <span class="val gt">¥150,000相当</span>
+        </div>
+        <div class="stack-row">
+          <span class="item">質問・添削し放題のコミュニティチャット<small>投稿・導線・オファー、何度でも見てもらえる</small></span>
+          <span class="val gt">¥50,000/月相当</span>
+        </div>
+        <div class="stack-row">
+          <span class="item">同じ方向を向く仲間がいる環境<small>一人でやらない、が標準になる場所</small></span>
+          <span class="val gt">プライスレス</span>
+        </div>
+      </div>
+      <div class="stack-total">
+        <span class="t">合計</span>
+        <span class="v gt">¥500,000相当/月</span>
+      </div>
+      <div class="stack-arrow">それが今日、<b>月額 ¥19,000</b>。</div>
+    </div>
+
+    <div class="rv">
+      <div class="price-card">
+        <div class="ribbon en">7.22 LAUNCH</div>
+        <div class="p-name gt en">SML — SELFMADE LIFESTYLE</div>
+        <div class="p-price">¥19,000<small>／月（税込）</small></div>
+        <div class="per-day">1日あたり <b>約630円</b>。単発コンサル1回分より安く、環境が毎日そばにある。</div>
+        <div class="offer-list">
+          <div class="row"><span class="mark">✓</span><span>全28レッスン＋ボーナス講義（ブランド設計・コンテンツ制作・権威構築・コピー・収益化導線）</span></div>
+          <div class="row"><span class="mark">✓</span><span>週1のグループライブコール</span></div>
+          <div class="row"><span class="mark">✓</span><span>コミュニティチャット（質問・添削し放題／成果報告）</span></div>
+        </div>
+        <div class="offer-meta">
+          プラットフォーム：Whop｜決済：クレジットカード／月次自動更新<br>
+          解約：いつでも可能（違約金なし）
+        </div>
+      </div>
+      <a href="https://whop.com/checkout/plan_R1ZcD6mGp1a12" class="cta-btn">
+        <span class="main">今すぐ入会する →</span>
+        <span class="sub">月額 ¥19,000｜いつでも解約可</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 実績フル版 -->
+<section class="section" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill en">Results</span>
+      <h2>実際に、変わり始めてる。</h2>
+    </div>
+
+    <!-- CASE 01: ナオトさん（2026-05-15ヒアリング済み。表記名・数字の公開範囲は本人確認中） -->
+    <div class="card voice rv">
+      <span class="case-tag en">CASE 01 ｜ 社会人1年目・フィットネスコーチ</span>
+      <div class="ba">
+        <div class="row"><span class="tag b en">BEFORE</span><span class="txt">週2〜3回の不定期投稿。ターゲット設定なし、商品なし、売上ゼロ。「1ヶ月でフォロワー200人」の目標すら無理だと思っていた</span></div>
+        <div class="row"><span class="tag a en">AFTER</span><span class="txt">入会2ヶ月で <b>DM50件以上 → 面談10件 → 有料モニター3件成約</b>。1本の投稿でフォロワー+500人</span></div>
+      </div>
+      <div class="ba-photos">
+        <div class="shot">
+          <img src="実績/ナオトくん_アカウント_Beforer.JPG" alt="ナオトさん 入会前のIGプロフィール（フォロワー37人）">
+          <div class="shot-label">BEFORE <span>フォロワー37人</span></div>
+        </div>
+        <div class="shot">
+          <img src="実績/ナオトくん_アカウント_Aftere.png" alt="ナオトさん 入会後のIGプロフィール（フォロワー2,925人）">
+          <div class="shot-label">AFTER <span>フォロワー2,925人</span></div>
+        </div>
+      </div>
+      <div class="proof-msg">
+        <img src="実績/ナオトくん_実績.png" alt="ナオトさん本人からの成果報告メッセージ「モニター3人目獲得」">
+        <div class="proof-caption">本人からの実績報告（コミュニティチャット）</div>
+      </div>
+      <div class="q">「数字には絶対原因がある——そう教わって、僕がモニターを獲得できたのにも原因がある。だから誰でも、教えてもらえれば一歩進めるはずです」</div>
+      <div class="who">— ナオトさん（メンバー歴2ヶ月時点）</div>
+    </div>
+    <!-- ▼ TBD: ナオトさんのDMスクロール画面録画（モザイク済み）をもらったらここにGIF/動画で挿入 ▼ -->
+
+    <!-- CASE 02: ソウタくん（2026-07-18ヒアリング済み。LP・サブ垢掲載は本人同意確認済み） -->
+    <div class="card voice rv">
+      <span class="case-tag en">CASE 02 ｜ フィットネス発信・社会人</span>
+      <div class="ba">
+        <div class="row"><span class="tag b en">BEFORE</span><span class="txt">フォロワー347人。コンテンツ配分を意識しない闇雲な投稿で、フォロワー層も浅く商品につながらない発信。¥10,000のコーチングすら3ヶ月売れず、売上ゼロ・商品もない状態</span></div>
+        <div class="row"><span class="tag a en">AFTER</span><span class="txt">入会<b>2ヶ月でフォロワー1,215人・成約4人</b>。当時売れなかった単価の<b>2〜3倍</b>で成約が取れるようになり、<b>累計売上¥340,000</b>を達成</span></div>
+      </div>
+      <div class="ba-photos">
+        <div class="shot">
+          <img src="実績/ソウタくん_アカウント_Befoer_トリミング.png" alt="ソウタさん 入会前のIGプロフィール（フォロワー347人）">
+          <div class="shot-label">BEFORE <span>フォロワー347人</span></div>
+        </div>
+        <div class="shot">
+          <img src="実績/ソウタくん_アカウント_Afere.png" alt="ソウタさん 入会後のIGプロフィール（フォロワー1,215人）">
+          <div class="shot-label">AFTER <span>フォロワー1,215人</span></div>
+        </div>
+      </div>
+      <div class="proof-msg">
+        <img src="実績/ソウタくん_実績.png" alt="ソウタさん本人からの成果報告メッセージ「4人目で34万円の売り上げ」">
+        <div class="proof-caption">本人からの実績報告（コミュニティチャット）</div>
+      </div>
+      <div class="q">「今SNSをやろうか迷っているなら、絶対にこの環境に身を置くべきだと思います。このコーチングを受けた後でも一生使える自分のスキルとして残るので、絶対に損はないと思います」</div>
+      <div class="who">— ソウタさん（入会2ヶ月時点）</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. リスクリバーサル -->
+<section class="section" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="inner">
+    <div class="card risk-card rv">
+      <div class="big">合わなければ、<br><span class="gt">翌月やめればいい。</span></div>
+      <div class="detail">
+        月額制だから、金銭的なリスクは一切ない。<br>
+        ただし、これは「とりあえず様子見」のための保証じゃない。本気でやり切る前提で、安心して踏み込んでほしいという話だ。<br>
+        カリキュラムも見ない、添削も使わない、コールにも出ない——それなら、正直今回は向いていないと思う。
+      </div>
+      <div class="risk-badges">
+        <span class="b">いつでも解約OK</span>
+        <span class="b">違約金なし</span>
+        <span class="b">解約は数タップで完了</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 正直な希少性 -->
+<section class="section scarcity" style="padding-top: 48px;">
+  <div class="inner rv">
+    <div class="msg">
+      正直に言っておくと、<br>
+      コンテンツと実績が積み上がるにつれて、<br>
+      月額は今後<b>値上げする可能性がある</b>。<br>
+      先に入った人は、<b>入会時の価格のまま</b>。
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="sec-faq">
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill en">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq">
+      <details class="card rv" open>
+        <summary>発信を始めたばかりでも大丈夫ですか？</summary>
+        <div class="a">大丈夫。0からでも問題ない。ここは、伸び悩む人の場所じゃなくて、本気で発信を始めたい人と、すでに始めてる人、両方のための場所。必要なのは実績じゃなくて、やり切る意思だけ。</div>
+      </details>
+      <details class="card rv">
+        <summary>もう少し自分で頑張ってから入った方がいいですか？</summary>
+        <div class="a">正直に言う。その「もう少し」に一番コストがかかる。自己流で試行錯誤する時間は、思ってるより高くつく。同じ1年でも、環境が違えば伸び方は5倍変わる。俺自身がそれを体験してる。</div>
+      </details>
+      <details class="card rv">
+        <summary>忙しくても続けられますか？どれくらい時間が必要ですか？</summary>
+        <div class="a">講義は好きな時間に自分のペースで見られる。やることは「学ぶ時間を増やす」ことじゃなくて、いつもの投稿に「意図」を乗せること。毎日の発信と両立する前提で設計してる。</div>
+      </details>
+      <details class="card rv">
+        <summary>無料のSNSノウハウと何が違うんですか？</summary>
+        <div class="a">情報自体は、正直ネットに転がってる。ここで手に入るのは情報じゃなくて「順番」と「環境」。自分の状況で今何をやるべきかが決まること、そして一人でやらない環境があること。俺が変われた理由は情報量じゃなく環境だった。</div>
+      </details>
+      <details class="card rv">
+        <summary>解約の方法は？返金保証はありますか？</summary>
+        <div class="a">解約はWhopからいつでも数タップでできる。違約金もない。だから「返金保証」自体は用意していない。合わなければ、翌月更新前にやめればいいだけ。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. Two Choices クローズ -->
+<section class="section" style="padding-bottom: 110px;">
+  <div class="glow g1" style="top: 40%;"></div>
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="pill en">Two Choices</span>
+      <h2>お前には今、<span class="gt">2つの選択肢がある。</span></h2>
+    </div>
+    <div class="choices">
+      <div class="choice stay rv">
+        <div class="ct">このまま、一人で続ける</div>
+        <ul>
+          <li>明日も、何を投稿するか迷いながら投稿する</li>
+          <li>伸びない原因がわからないまま、試行錯誤が続く</li>
+          <li>1年後も、たぶん今と同じ場所にいる</li>
+        </ul>
+      </div>
+      <div class="choice go rv">
+        <div class="ct">環境を変えて、進める</div>
+        <ul>
+          <li>「誰に・何を・どの順番で」が決まり、迷いが消える</li>
+          <li>詰まったら聞ける場所と、同じ方向を向く仲間がいる</li>
+          <li>発信・商品化・集客・成約が一本の線でつながる</li>
+        </ul>
+      </div>
+    </div>
+    <div class="final-msg rv">
+      環境を変えた瞬間、俺は変わった。<br>
+      <span class="gt">今度はお前の番。</span>
+    </div>
+    <a href="https://whop.com/checkout/plan_R1ZcD6mGp1a12" class="cta-btn rv">
+      <span class="main">SMLに入る →</span>
+      <span class="sub">月額 ¥19,000｜いつでも解約可</span>
+    </a>
+    <div class="ps rv">
+      P.S. 迷ってるなら、思い出してほしい。<b>いつでも解約できる。</b>1ヶ月だけ環境を変えてみて、合わなければやめればいい。でも実際に、メンバーは2ヶ月で有料成約3件まで行った。
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="t en">SML — SELFMADE LIFESTYLE</div>
+</div>
+
+<!-- 追従CTAバー -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="price"><b>月額 ¥19,000</b><br>いつでも解約可</div>
+  <a href="https://whop.com/checkout/plan_R1ZcD6mGp1a12" class="btn">入会する →</a>
+</div>
+
+<script>
+  // 南国の葉っぱレイヤー：ヤシの葉フロンドをSVGで手続き的に生成
+  (function () {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.getElementById('leafLayer');
+    if (!svg) return;
+
+    function frond(originX, originY, dirDeg, len, leafletCount, curve, color, opacity) {
+      var g = document.createElementNS(NS, 'g');
+      g.setAttribute('fill', color);
+      g.setAttribute('opacity', opacity);
+
+      var rad = dirDeg * Math.PI / 180;
+      var tipX = originX + Math.cos(rad) * len;
+      var tipY = originY + Math.sin(rad) * len;
+      var perp = rad + Math.PI / 2;
+      var midX = (originX + tipX) / 2 + Math.cos(perp) * curve;
+      var midY = (originY + tipY) / 2 + Math.sin(perp) * curve;
+
+      function pt(t) {
+        var x = (1 - t) * (1 - t) * originX + 2 * (1 - t) * t * midX + t * t * tipX;
+        var y = (1 - t) * (1 - t) * originY + 2 * (1 - t) * t * midY + t * t * tipY;
+        return [x, y];
+      }
+      function tangent(t) {
+        var dx = 2 * (1 - t) * (midX - originX) + 2 * t * (tipX - midX);
+        var dy = 2 * (1 - t) * (midY - originY) + 2 * t * (tipY - midY);
+        var m = Math.hypot(dx, dy) || 1;
+        return [dx / m, dy / m];
+      }
+
+      // rachis（茎）
+      var rachis = document.createElementNS(NS, 'path');
+      rachis.setAttribute('d', 'M ' + originX + ' ' + originY + ' Q ' + midX + ' ' + midY + ' ' + tipX + ' ' + tipY);
+      rachis.setAttribute('stroke', color);
+      rachis.setAttribute('stroke-width', len * 0.006);
+      rachis.setAttribute('fill', 'none');
+      g.appendChild(rachis);
+
+      for (var i = 1; i <= leafletCount; i++) {
+        var t = i / (leafletCount + 1);
+        var p = pt(t);
+        var tan = tangent(t);
+        var tanAngle = Math.atan2(tan[1], tan[0]);
+        var leafletLen = Math.sin(Math.PI * t) * (len / leafletCount) * 2.1 + len * 0.03;
+        var sweepDeg = 78 - t * 35; // 根元は広がり、先端は茎に寄る
+
+        [1, -1].forEach(function (side) {
+          var leafAngle = tanAngle + side * (sweepDeg * Math.PI / 180);
+          var bx = p[0], by = p[1];
+          var tx = bx + Math.cos(leafAngle) * leafletLen;
+          var ty = by + Math.sin(leafAngle) * leafletLen;
+          var mx = (bx + tx) / 2, my = (by + ty) / 2;
+          var lp = leafAngle + Math.PI / 2;
+          var w = leafletLen * 0.10;
+          var c1x = mx + Math.cos(lp) * w, c1y = my + Math.sin(lp) * w;
+          var c2x = mx - Math.cos(lp) * w, c2y = my - Math.sin(lp) * w;
+          var d = 'M ' + bx + ' ' + by + ' Q ' + c1x + ' ' + c1y + ' ' + tx + ' ' + ty +
+                  ' Q ' + c2x + ' ' + c2y + ' ' + bx + ' ' + by + ' Z';
+          var leaf = document.createElementNS(NS, 'path');
+          leaf.setAttribute('d', d);
+          g.appendChild(leaf);
+        });
+      }
+      svg.appendChild(g);
+    }
+
+    function layout() {
+      var W = document.documentElement.scrollWidth;
+      var H = document.documentElement.scrollHeight;
+      svg.setAttribute('width', W);
+      svg.setAttribute('height', H);
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      var GREEN = '#16241a';
+      // ①ヒーロー上部の左右
+      frond(-30, -40, 35, W * 0.32, 9, W * 0.05, GREEN, 0.16);
+      frond(W + 30, 60, 205, W * 0.24, 7, -W * 0.04, GREEN, 0.10);
+
+      // ②「入会後ロードマップ」③「FAQ」のセクション付近にだけ添える
+      function sectionY(id) {
+        var el = document.getElementById(id);
+        if (!el) return null;
+        return el.getBoundingClientRect().top + window.scrollY;
+      }
+      var roadmapY = sectionY('sec-roadmap');
+      if (roadmapY !== null) {
+        frond(-30, roadmapY + 40, 15, W * 0.26, 8, W * 0.05, GREEN, 0.13);
+      }
+      var faqY = sectionY('sec-faq');
+      if (faqY !== null) {
+        frond(W + 30, faqY + 60, 195, W * 0.24, 7, -W * 0.04, GREEN, 0.12);
+      }
+    }
+    layout();
+    var resizeT;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(layout, 200);
+    });
+    window.addEventListener('load', layout);
+  })();
+
+  (function () {
+    var bar = document.getElementById('stickyCta');
+    var fv = document.querySelector('.fv');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > fv.offsetHeight) bar.classList.add('show');
+      else bar.classList.remove('show');
+    }, { passive: true });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
